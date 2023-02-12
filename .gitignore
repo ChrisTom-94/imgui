@@ -67,6 +67,3 @@ examples/example_sdl_sdlrenderer/example_sdl_sdlrenderer
 
 *.vcxproj
 *.vcxproj.filters
-
-## makefile
-Makefile
