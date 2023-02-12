@@ -13,6 +13,9 @@ examples/*/Debug/*
 examples/*/Release/*
 examples/*/x64/*
 
+## ignore Makefile
+Makefile
+
 ## Visual Studio artifacts
 .vs
 ipch
