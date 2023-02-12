@@ -1,9 +1,6 @@
-project "ImGui"
+project "imgui"
 	kind "StaticLib"
 	language "C++"
-
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{
@@ -32,6 +29,14 @@ project "ImGui"
 		"%{Includes['glfw']}",
 		"%{Includes['vulkan']}",
 	}
+
+	filter "action:vs*"
+		targetdir ("bin/VisualStudio/" .. outputdir .. "/%{prj.name}")
+		objdir ("bin-int/VisualStudio/" .. outputdir .. "/%{prj.name}")
+	
+	filter "action:gmake*"
+		targetdir ("bin/Make/" .. outputdir .. "/%{prj.name}")
+		objdir ("bin-int/Make/" .. outputdir .. "/%{prj.name}")
 
 	filter "system:windows"
 		systemversion "latest"
