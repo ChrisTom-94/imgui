@@ -18,13 +18,27 @@ project "ImGui"
 		"imstb_truetype.h",
 		"imgui_demo.cpp",
 		"imgui_tables.cpp",
-		"imgui_impl_glfw.h",
-		"imgui_impl_glfw.cpp",
-		"imgui_impl_opengl3.h",
-		"imgui_impl_opengl3.cpp",
-		"imgui_impl_vulkan.h",
-		"imgui_impl_vulkan.cpp"
+		"backends/imgui_impl_glfw.h",
+		"backends/imgui_impl_glfw.cpp",
+		"backends/imgui_impl_opengl3.h",
+		"backends/imgui_impl_opengl3.cpp",
+		"backends/imgui_impl_vulkan.h",
+		"backends/imgui_impl_vulkan.cpp"
 	}
+
+	includedirs
+	{
+		"./",
+		"%{Includes['glfw']}",
+		"%{Includes['vulkan']}",
+	}
+
+	-- links
+	-- {
+	-- 	"glfw",
+	-- 	"glad",
+	-- 	"Vulkan"
+	-- }
 
 	filter "system:windows"
 		systemversion "latest"
