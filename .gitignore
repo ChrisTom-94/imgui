@@ -13,8 +13,6 @@ examples/*/Debug/*
 examples/*/Release/*
 examples/*/x64/*
 
-*Makefile
-
 ## Visual Studio artifacts
 .vs
 ipch
@@ -67,3 +65,6 @@ examples/example_sdl_sdlrenderer/example_sdl_sdlrenderer
 
 *.vcxproj
 *.vcxproj.filters
+
+## makefile
+*Makefile
