@@ -1,6 +1,9 @@
 project "imgui"
 	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	systemversion "latest"
+	staticruntime "on"
 
 	files
 	{
@@ -37,17 +40,6 @@ project "imgui"
 	filter "action:gmake*"
 		targetdir ("%{wks.location}/build/bin/Make/" .. outputdir .. "/Dependencies/%{prj.name}")
 		objdir ("%{wks.location}/build/bin-int/Make/" .. outputdir .. "/Dependencies/%{prj.name}")
-
-	filter "system:windows"
-		systemversion "latest"
-		cppdialect "C++17"
-		staticruntime "On"
-
-	filter "system:linux"
-		pic "On"
-		systemversion "latest"
-		cppdialect "C++17"
-		staticruntime "On"
 
 	filter "configurations:Debug"
 		runtime "Debug"
