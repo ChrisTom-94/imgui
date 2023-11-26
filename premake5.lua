@@ -22,6 +22,7 @@ project "imgui"
 		"backends/imgui_impl_glfw.cpp",
 		"backends/imgui_impl_opengl3.h",
 		"backends/imgui_impl_opengl3.cpp",
+
 		"backends/imgui_impl_vulkan.h",
 		"backends/imgui_impl_vulkan.cpp"
 	}
@@ -33,13 +34,17 @@ project "imgui"
 		"%{Includes['vulkan']}",
 	}
 
-	filter "action:vs*"
-		targetdir ("%{wks.location}/build/bin/VisualStudio/" .. outputdir .. "/Dependencies/%{prj.name}")
-		objdir ("%{wks.location}/build/bin-int/VisualStudio/" .. outputdir .. "/Dependencies/%{prj.name}")
-	
-	filter "action:gmake*"
-		targetdir ("%{wks.location}/build/bin/Make/" .. outputdir .. "/Dependencies/%{prj.name}")
-		objdir ("%{wks.location}/build/bin-int/Make/" .. outputdir .. "/Dependencies/%{prj.name}")
+	filter {"action:vs*", "system:windows"}
+		targetdir ("%{wks.location}/build/bin/windows/vs/" .. outputdir .. "/Dependencies/%{prj.name}")
+		objdir ("%{wks.location}/build/bin-int/windows/vs/" .. outputdir .. "/Dependencies/%{prj.name}")
+
+	filter {"action:gmake*", "system:windows"}
+		targetdir ("%{wks.location}/build/bin/windows/mingw/" .. outputdir .. "/Dependencies/%{prj.name}")
+		objdir ("%{wks.location}/build/bin-int/windows/mingw/" .. outputdir .. "/Dependencies/%{prj.name}")
+
+	filter "system:linux"
+		targetdir ("%{wks.location}/build/bin/linux/" .. outputdir .. "/Dependencies/%{prj.name}")
+		objdir ("%{wks.location}/build/bin-int/linux/" .. outputdir .. "/Dependencies/%{prj.name}")
 
 	filter "configurations:Debug"
 		runtime "Debug"
