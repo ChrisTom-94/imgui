@@ -62,3 +62,7 @@ examples/example_sdl_sdlrenderer/example_sdl_sdlrenderer
 .vscode/
 *.vcxproj
 *.vcxproj.filters
+
+*Makefile
+
+examples
