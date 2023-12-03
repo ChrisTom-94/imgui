@@ -65,4 +65,4 @@ examples/example_sdl_sdlrenderer/example_sdl_sdlrenderer
 
 *Makefile
 
-examples
+./examples
